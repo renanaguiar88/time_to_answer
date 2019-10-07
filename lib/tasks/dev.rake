@@ -9,14 +9,12 @@ namespace :dev do
       show_spinner("Apagando o Banco de Dados...") {%x(rails db:drop:_unsafe)}
       show_spinner("Criando o Banco de Dados...") {%x(rails db:create)}
       show_spinner("Migrando o Banco de Dados...") {%x(rails db:migrate)}
-      show_spinner("Cadastrando o Administrador Padrão...") {%x(rails dev:add_default_admin)}
-      show_spinner("Cadastrando os Administradores Extras...") {%x(rails dev:add_extra_admins)}
-      show_spinner("Cadastrando o Usuário Padrão...") {%x(rails dev:add_default_user)}
-      show_spinner("Cadastrando os Assuntos Padrão...") {%x(rails dev:add_subjects)}
-      show_spinner("Cadastrando as Perguntas e Respostas Padrão...") {%x(rails dev:add_answers_and_questions)}
-    else
-      puts "Você não está em ambiente de Desenvolvimento"
     end
+    show_spinner("Cadastrando o Administrador Padrão...") {%x(rails dev:add_default_admin)}
+    show_spinner("Cadastrando os Administradores Extras...") {%x(rails dev:add_extra_admins)}
+    show_spinner("Cadastrando o Usuário Padrão...") {%x(rails dev:add_default_user)}
+    show_spinner("Cadastrando os Assuntos Padrão...") {%x(rails dev:add_subjects)}
+    show_spinner("Cadastrando as Perguntas e Respostas Padrão...") {%x(rails dev:add_answers_and_questions)}    
   end
 
   desc "Adiciona o administrador padrão"
