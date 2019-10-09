@@ -30,13 +30,20 @@
             <%= form.label :subject_id %>
             <%= form.collection_select :subject_id, @subjects, :id, :description, {}, {class:"form-control"} %>            
           </div>
+          
+          <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary"><%= @question.answers.model_name.human(count: 2) %></h6>          
+            </div>
+          
 
-          <div id="answers">
-            <%= form.fields_for :answers do |answer| %>
-              <%= render partial: "answer_fields", locals: {f: answer} %>
-            <% end %>
+            <div id="answers" class="py-3 px-3">
+              <%= form.fields_for :answers do |answer| %>
+                <%= render partial: "answer_fields", locals: {f: answer} %>
+              <% end %>
 
-            <%= link_to_add_association 'Adicionar resposta', form, :answers  %>
+              <%= link_to_add_association 'Adicionar resposta', form, :answers  %>
+            </div>  
           </div>
 
           <button type="submit" class="btn btn-primary"><%= t('buttons.save') %></button>  
