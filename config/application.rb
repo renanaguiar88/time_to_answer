@@ -26,6 +26,9 @@ module TimeToAnswer
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.generators.system_tests = nil    
+    config.generators.system_tests = nil
+    
+    # Bootstrap icons fix
+    config.assets.paths << Rails.root.join('node_modules', 'bootstrap', 'fonts')
   end
 end
